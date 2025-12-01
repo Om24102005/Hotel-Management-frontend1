@@ -1,0 +1,5 @@
+com\example\hotel\controller\BookingController.class
+com\example\hotel\HotelApplication.class
+com\example\hotel\model\Booking.class
+com\example\hotel\MainApp.class
+com\example\hotel\repository\BookingRepository.class

@@ -1,0 +1,94 @@
+<!-- File: Booking.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Booking</title>
+    <link rel="stylesheet" href="booking.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="booking-container">
+    <h2 class="fade-in">Book Your Luxury Stay</h2>
+
+    <form id="bookingForm" class="slide-up">
+
+        <label>Full Name</label>
+        <input type="text" name="name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Phone</label>
+        <input type="text" name="phone" required>
+
+        <label>Room Type</label>
+        <select name="roomType" required>
+            <option value="Deluxe">Deluxe Room</option>
+            <option value="Premium">Premium Suite</option>
+            <option value="Royal">Royal Palace Room</option>
+        </select>
+
+        <label>Check-in Date</label>
+        <input type="date" name="checkin" required>
+
+        <label>Check-out Date</label>
+        <input type="date" name="checkout" required>
+
+        <label>Number of Guests</label>
+        <input type="number" name="guests" min="1" value="1" required>
+
+        <button type="button" id="payBtn" class="premium-btn">Proceed to Payment</button>
+
+    </form>
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+document.getElementById("payBtn").onclick = async function() {
+
+    const formData = new FormData(document.getElementById("bookingForm"));
+    let booking = Object.fromEntries(formData);
+
+    const response = await fetch("http://localhost:8080/api/bookings/createOrder", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(booking)
+    });
+
+    const order = await response.json();
+
+    const options = {
+        "key": "YOUR_KEY_ID",
+        "amount": order.amount,
+        "currency": "INR",
+        "name": "Hotel Booking",
+        "description": "Room Booking Payment",
+        "order_id": order.id,
+
+        "handler": function (response){
+            alert("Payment Successful!");
+
+            fetch("http://localhost:8080/api/bookings/save", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(booking)
+            });
+
+            window.location.href = "success.html";
+        },
+
+        "theme": { "color": "#4c4cff" }
+    };
+
+    let rzp = new Razorpay(options);
+    rzp.open();
+};
+</script>
+
+</body>
+</html>

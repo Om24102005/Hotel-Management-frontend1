@@ -485,11 +485,25 @@ nav {
 .menu__banner {
   list-style: none;
   padding: 4rem 2rem;
-  display: grid;
-  gap: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-align: center;
   background-color: var(--primary-color);
   border-radius: 5px;
+}
+
+.menu__banner li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.menu__banner li:hover {
+  transform: translateY(-10px);
 }
 
 .menu__banner span {
@@ -506,7 +520,6 @@ nav {
 .menu__banner p {
   color: var(--text-light);
 }
-
 .news__header {
   display: flex;
   flex-direction: column;
@@ -845,4 +858,91 @@ h3{
 .payment-icons i:hover {
   transform: scale(1.2);
   color: #007bff;
+}
+
+.booking-box {
+  background: linear-gradient(145deg, #0f1123, #1a1c33);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--white);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.booking-box h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.booking-box p {
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+/* BUTTON */
+.booking-btn {
+  position: relative;
+  padding: 1rem 2.5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  background: var(--secondary-color);
+  color: #000;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+/* Glow + Lift */
+.booking-btn:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 0 25px var(--secondary-color);
+}
+
+/* Shimmer animation */
+.booking-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 120%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.7),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: 0.2s;
+}
+
+.booking-btn:hover::before {
+  left: 120%;
+}
+
+/* Icon slide animation */
+.booking-btn:hover i {
+  transform: translateX(6px);
+  transition: 0.3s ease;
+}
+
+/* Fade-up entrance */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
