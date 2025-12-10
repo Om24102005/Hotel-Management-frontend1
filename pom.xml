@@ -50,12 +50,7 @@
             <version>2.0.7</version>
         </dependency>
         
-        <!-- Razorpay SDK -->
-        <dependency>
-            <groupId>com.razorpay</groupId>
-            <artifactId>razorpay</artifactId>
-            <version>1.4.6</version>
-        </dependency>
+        <!-- Razorpay SDK removed: using direct REST call to Razorpay API instead -->
     </dependencies>
 
     <build>
