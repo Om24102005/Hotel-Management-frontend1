@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Customization</title>
+    <link rel="stylesheet" href="room.css">
+</head>
+<body>
+    <div class="customization-container">
+        <h1>Customize Your Room</h1>
+        <p>Choose your preferences to make your stay more comfortable.</p>
+        <form action="#" method="post" class="room-form">
+
+            <!-- Bed Type -->
+            <label for="bed">Bed Type:</label>
+            <select id="bed" name="bed" required>
+                <option value="">Select Bed Type</option>
+                <option value="single">Single Bed</option>
+                <option value="double">Double Bed</option>
+                <option value="king">King Size Bed</option>
+            </select>
+
+            <!-- Room View -->
+            <label for="view">Room View:</label>
+            <select id="view" name="view" required>
+                <option value="">Select View</option>
+                <option value="sea">Sea View</option>
+                <option value="garden">Garden View</option>
+                <option value="city">City View</option>
+            </select>
+
+            <!-- Amenities -->
+            <label>Amenities:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="amenities" value="wifi"> Free WiFi</label>
+                <label><input type="checkbox" name="amenities" value="ac"> Air Conditioning</label>
+                <label><input type="checkbox" name="amenities" value="tv"> Smart TV</label>
+                <label><input type="checkbox" name="amenities" value="minibar"> Mini Bar</label>
+            </div>
+
+            <!-- Extra Services -->
+            <label>Extra Services:</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="services" value="breakfast"> Breakfast</label>
+                <label><input type="checkbox" name="services" value="laundry"> Laundry</label>
+                <label><input type="checkbox" name="services" value="spa"> Spa Access</label>
+            </div>
+
+            <button type="submit">Confirm Room</button>
+        </form>
+    </div>
+</body>
+</html>

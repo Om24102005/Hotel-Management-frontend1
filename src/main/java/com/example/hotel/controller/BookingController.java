@@ -80,10 +80,14 @@ public class BookingController {
 
         if (!key.isBlank() && !secret.isBlank()) {
             try {
+                // Receipt must be max 40 chars - use short format
+                long receiptId = System.currentTimeMillis() % 1000000;
+                String receipt = "receipt_" + receiptId;
+                
                 Map<String, Object> payload = Map.of(
                         "amount", amount,
                         "currency", "INR",
-                        "receipt", "booking_rcpt_" + UUID.randomUUID().toString()
+                        "receipt", receipt
                 );
 
                 HttpHeaders headers = new HttpHeaders();

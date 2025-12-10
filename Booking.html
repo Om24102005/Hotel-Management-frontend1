@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Hotel Booking</title>
     <link rel="stylesheet" href="booking.css">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -25,11 +25,11 @@
         <label>Phone</label>
         <input type="text" name="phone" required>
 
-        <label>Room Type</label>
-        <select name="roomType" required>
+        <label for="roomType">Room Type</label>
+        <select id="roomType" name="roomType" required>
             <option value="Deluxe">Deluxe Room</option>
-            <option value="Premium">Premium Suite</option>
-            <option value="Royal">Royal Palace Room</option>
+            <option value="Premium">Family Suite</option>
+            <option value="Royal">Luxury Penthouse</option>
         </select>
 
         <label>Check-in Date</label>
@@ -42,6 +42,7 @@
         <input type="number" name="guests" min="1" value="1" required>
 
         <button type="button" id="payBtn" class="premium-btn">Proceed to Payment</button>
+        
 
     </form>
 </div>
