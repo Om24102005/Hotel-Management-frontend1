@@ -56,8 +56,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        
-        <!-- Razorpay SDK removed: using direct REST call to Razorpay API instead -->
     </dependencies>
 
     <build>
